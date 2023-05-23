@@ -19,13 +19,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* gap: .7rem; */
     margin: 0 auto;
     margin-top: 13vw;
     text-align: center;
     background: rgba(128, 128, 128, 0.745);
     border-radius: 4%;
     padding-top: 2.5rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .titulo {
@@ -34,12 +34,17 @@ body {
     text-align: center;
     font-family: var(--fonte-primaria);
     white-space: normal;
+    text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
 }
 
 .frase {
     color: var(--cor-fonte);
     font-size: 2rem;
     font-family: var(--fonte-secundaria);
+    text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 0 1rem;
+
 }
 
 .botao {
@@ -50,6 +55,7 @@ body {
     width: 54px;
     height: 54px;
     background-color: var(--cor-terciaria);
+
 }
 
 .botao__imagem {
@@ -62,7 +68,7 @@ body {
 @media  (min-width: 360px) and (max-width: 420px){
     .caixote{
         width: 90vw;
-        margin-top: 40vw;
+        margin-top: 50vw;
     }
 
     .divisoria>img {
@@ -87,6 +93,17 @@ body {
 
 }
 
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 1112px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+
+
+}
+
+
 /* DESKTOP */
 @media screen 
   and (min-device-width: 1200px) 
@@ -97,6 +114,15 @@ body {
 
     .caixote {
     width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 9vw;
+    text-align: center;
+    background: rgba(128, 128, 128, 0.745);
+    border-radius: 4%;
+    padding-top: 2.5rem;
     /* position: absolute;
     top: 50%;
     left: 50%;
