@@ -1,6 +1,6 @@
-
 const botao = document.querySelector('.botao');
 const frase = document.querySelector('.frase');
+const titulo = document.querySelector('.titulo');
 
 botao.addEventListener('click', async (evento) => {
     evento.preventDefault()
@@ -12,11 +12,18 @@ botao.addEventListener('click', async (evento) => {
       throw new Error('Request failed with status ' + response.status);
     }
     const data = await response.json();
-
-    console.log(data.slip.advice)
-    frase.textContent = data.slip.advice;
+    
+    titulo.textContent= 'ADVICE #' + data.slip.id;
+    frase.textContent = '"'+ data.slip.advice +'"';
 
   } catch (error) {
     frase.textContent = 'Error: ' + error.message;
   }
+});
+
+const darkModeBtn = document.getElementById('darkModeBtn');
+const body = document.body;
+
+darkModeBtn.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
 });
