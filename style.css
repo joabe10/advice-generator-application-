@@ -1,11 +1,14 @@
 
 :root {
-    --cor-primaria: rgba(22, 22, 76, 0.857); /**/
-    --cor-secundaria: rgba(128, 128, 128, 0.745); /*similar ao claro*/
-    --cor-terciaria: rgba(78, 222, 30, 0.725); /*o mais claro*/
+    --cor-primaria: /* fallback for old browsers */
+    -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    ; 
+    --cor-secundaria: rgba(128, 128, 128, 0.745); 
+    --cor-terciaria: rgba(78, 222, 30, 0.725); 
     --cor-fonte: white;
-    --cor-hover: #712B75  ; /*similar ao escuro*/
-    --cor-active: #5B8FB9;
+    --cor-hover: rgba(87, 225, 41, 0.725) ; 
+    --cor-active: rgba(78, 222, 30, 0.888);
 
     --fonte-primaria: 'Domine', serif;
     --fonte-secundaria: 'Life Savers', cursive;
@@ -15,14 +18,42 @@ body {
     background: var(--cor-primaria);
 }
 
+#darkModeBtn {
+    background-color: #333;
+    border-radius:0 20px 0 20px;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    position: sticky;
+    top: 0;
+    /* right: 0; */
+  }
+
+  .dark-mode {
+    
+    --cor-primaria:#000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    --cor-secundaria: #ad5389;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    --cor-terciaria: rgba(78, 222, 30, 0.725); 
+    --cor-fonte: white;
+    --cor-hover: #57e129b9 ; 
+    --cor-active: rgba(78, 222, 30, 0.888);
+  }
+
 .caixote {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
     margin-top: 13vw;
-    text-align: center;
-    background: rgba(128, 128, 128, 0.745);
+    /* text-align: center; */
+    background: var(--cor-secundaria);
     border-radius: 4%;
     padding-top: 2.5rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -34,17 +65,15 @@ body {
     text-align: center;
     font-family: var(--fonte-primaria);
     white-space: normal;
-    text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-
+    text-shadow: rgba(0, 0, 0, 0.408) 1.95px 1.95px 2.6px;
 }
 
 .frase {
     color: var(--cor-fonte);
     font-size: 2rem;
     font-family: var(--fonte-secundaria);
-    text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    text-shadow: rgba(0, 0, 0, 0.354) 1.95px 1.95px 2.6px;
     padding: 0 1rem;
-
 }
 
 .botao {
@@ -55,7 +84,17 @@ body {
     width: 54px;
     height: 54px;
     background-color: var(--cor-terciaria);
+    cursor: pointer;
+}
 
+.botao:hover {
+    box-shadow: var(--cor-hover) 0px 22px 70px 4px;
+    transition: 1.3s;
+}
+
+.botao:active {
+    box-shadow: var(--cor-active) 0px 22px 70px 4px;
+    /* transition: 1s; */
 }
 
 .botao__imagem {
@@ -65,10 +104,19 @@ body {
 }
 
 /* CELULARES */
+
 @media  (min-width: 360px) and (max-width: 420px){
     .caixote{
-        width: 90vw;
-        margin-top: 50vw;
+        width: 80vw;
+        margin-top: 55vw;
+    }
+
+    .titulo {
+        font-size: 1rem;
+    }
+
+    .frase {
+        font-size: 2rem;
     }
 
     .divisoria>img {
@@ -76,13 +124,14 @@ body {
     }
 
     .botao {
-        display: flex;
-        position: relative;
-        top: 20px;
         border-radius: 37px;
         width: 64px;
         height: 64px;
-        background-color: var(--cor-terciaria);
+    }
+
+    .botao:hover {
+        box-shadow: var(--cor-terciaria) 0px 22px 70px 4px;
+        transition: 1.3s;
     }
     
     .botao__imagem {
@@ -90,19 +139,31 @@ body {
         align-items: center;
         transform: translate(19.4px, 20.7px);
     }
-
 }
 
-/* Portrait and Landscape */
+/* Tablets Portrait and Landscape */
 @media only screen 
-  and (min-device-width: 834px) 
-  and (max-device-width: 1112px)
+  and (min-device-width: 820px) 
+  and (max-device-width: 1199px)
   and (-webkit-min-device-pixel-ratio: 2) {
 
+    .frase {
+        padding: 0 3rem;
+    }
 
+    .divisoria>img {
+        width: 60%;
+    }
 
+    .caixote {
+        width: 50vw;
+        margin: 0 auto;
+        margin-top: 15vw;
+        text-align: center;
+        background: rgba(128, 128, 128, 0.745);
+        padding-top: 2.5rem;
+    }
 }
-
 
 /* DESKTOP */
 @media screen 
@@ -113,19 +174,11 @@ body {
     }
 
     .caixote {
-    width: 40vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    margin-top: 9vw;
-    text-align: center;
-    background: rgba(128, 128, 128, 0.745);
-    border-radius: 4%;
-    padding-top: 2.5rem;
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    }
+        width: 40vw;
+        margin: 0 auto;
+        margin-top: 9vw;
+        text-align: center;
+        background: rgba(128, 128, 128, 0.745);
+        padding-top: 2.5rem;
+        }
 }
